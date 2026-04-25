@@ -33,7 +33,7 @@ def evaluate_models(X_train,y_train,X_test,y_test,models,params):
             para=params[list(models.keys())[i]]
             
             
-            rs=RandomizedSearchCV(model, para, cv=3, n_iter=10, random_state=42, n_jobs=-1,verbose=False)
+            rs=RandomizedSearchCV(model, para, cv=3, n_iter=10, n_jobs=-1)
             rs.fit(X_train,y_train)
             
             model.set_params(**rs.best_params_)
